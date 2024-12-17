@@ -1,0 +1,41 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model List<DocStore>
+
+<div id="main_div">
+    <form asp-action="UploadFile" asp-controller="Home" method="post" enctype="multipart/form-data" data-ajax="true" data-ajax-update="#filelist">
+
+      <div class="row justify-content-center align-content-start">
+
+          <div class="col12"><input type="file" name="allFiles" multiple /></div>
+          <div class="col12" style="margin-top: 10px;"><input type="submit" /></div>
+
+      </div>
+      
+    </form>
+
+    <div class="row justify-content-center align-content-center" style="margin-top: 10px;">
+
+        <div class="col-12">
+
+            <table class="table align-middle">
+                <thead>
+                    <tr>
+                        <th scope="col"></th>
+                        <th scope="col">Files</th>
+                        <th scope="col">Type</th>
+                        <th scope="col">Size</th>
+                        <th scope="col">Upload Date</th>
+                    </tr>
+                </thead>
+                <tbody class="table-group-divider" id="filelist">
+                    <partial name="_FileList" />
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+</div>

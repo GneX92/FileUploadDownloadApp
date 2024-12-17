@@ -1,0 +1,12 @@
+﻿@model List<DocStore>
+
+@foreach(var item in Model)
+{
+	<tr>
+		<td><a asp-action="FileDelete" asp-controller="Home" asp-route-id="@item.DocId"><i class="bi-x-circle" style="font-size: 2rem; color: red;"></i></a></td>
+		<td><a asp-action="FileDownload" asp-controller="Home" asp-route-id="@item.DocId">@item.DocName</a></td>
+		<td>@item.ContentType</td>
+		<td>@item.ContentLength kB</td>
+		<td>@item.InsertionDate.ToShortDateString()</td>
+	</tr>
+}
